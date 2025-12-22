@@ -9,7 +9,8 @@ import {
     SiJavascript,
     SiMongodb,
     SiNodedotjs,
-    SiAngular
+    SiAngular,
+    SiNextdotjs
   } from "react-icons/si";
 import NetFlixDashboard from "../../assets/Netflix/netflix_dashboard.png";
 import AmazonDashboard from "../../assets/Amazon/Amzon_Dashboard.png";
@@ -21,23 +22,88 @@ import InsuranceCycles from "../../assets/Insurance/insurance_cycles.png"
 import InsuranceCategories from "../../assets/Insurance/insurance_categories.png"
 import InsuranceProviders from "../../assets/Insurance/insurance_providers.png"
 import WeatherForecastDashboard from "../../assets/Weather Forecast/weather_forecast_dashboard.png"
+import GoldnLadies1 from "../../assets/GoldnLadies/Goldn-Ladies-1.png"
+import GoldnLadies2 from "../../assets/GoldnLadies/Goldn-Ladies-2.png"
+import GoldnLadies3 from "../../assets/GoldnLadies/Goldn-Ladies-3.png"
+import GoldnLadies4 from "../../assets/GoldnLadies/Goldn-Ladies-4.png"
+import GoldnLadies5 from "../../assets/GoldnLadies/Goldn-Ladies-5.png"
+import GoldnLadies6 from "../../assets/GoldnLadies/Goldn-Ladies-6.png"
+import Breadth1 from "../../assets/Breadth/breadth-1.png"
+import Breadth2 from "../../assets/Breadth/breadth-2.png"
+import Breadth3 from "../../assets/Breadth/breadth-3.png"
+import Breadth4 from "../../assets/Breadth/breadth-4.png"
+import Breadth5 from "../../assets/Breadth/breadth-5.png"
+import Breadth6 from "../../assets/Breadth/breadth-6.png"
+import AlAbrar1 from "../../assets/AlAbrar/al-abrar-1.png"
+import AlAbrar2 from "../../assets/AlAbrar/al-abrar-2.png"
+import AlAbrar3 from "../../assets/AlAbrar/al-abrar-3.png"
+import AlAbrar4 from "../../assets/AlAbrar/al-abrar-4.png"
+import AlAbrar5 from "../../assets/AlAbrar/al-abrar-5.png"
+import AlAbrar6 from "../../assets/AlAbrar/al-abrar-6.png"
+import AlAbrar7 from "../../assets/AlAbrar/al-abrar-7.png"
+import AlAbrar8 from "../../assets/AlAbrar/al-abrar-8.png"
+import AlAbrar9 from "../../assets/AlAbrar/al-abrar-9.png"
+import AlAbrar10 from "../../assets/AlAbrar/al-abrar-10.png"
+
+
+
+// Carousel component to encapsulate state for each carousel
+const Carousel = ({ images, altPrefix }) => {
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    const moveCarousel = (direction) => {
+        setCurrentSlide(prevSlide => {
+            const newSlide = (prevSlide + direction + images.length) % images.length;
+            return newSlide;
+        });
+    };
+
+    return (
+        <div className="carousel">
+            <div className="carousel-inner" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+                {images.map((image, index) => (
+                    <div 
+                        key={index}
+                        className={`carousel-item ${index === currentSlide ? 'active' : ''}`}
+                    >
+                        <a href={image} target="_blank" rel="noopener noreferrer">
+                            <img src={image} alt={`${altPrefix} ${index + 1}`} />
+                        </a>
+                    </div>
+                ))}
+            </div>
+            <button className="carousel-control prev" onClick={() => moveCarousel(-1)}>
+                &#10094;
+            </button>
+            <button className="carousel-control next" onClick={() => moveCarousel(1)}>
+                &#10095;
+            </button>
+        </div>
+    );
+};
 
 export const Projects = () => {
 
-    let [currentSlide] = useState(0);
+    // Define image arrays for each project
+    const goldnLadiesImages = [
+        GoldnLadies1, GoldnLadies2, GoldnLadies3, 
+        GoldnLadies4, GoldnLadies5, GoldnLadies6
+    ];
 
-    const moveCarousel = (direction) => {
-        const items = document.querySelectorAll('.carousel-item');
-        const totalItems = items.length;
+    const insuranceImages = [
+        InsuranceDashboard, InsuranceProviders, InsuranceCategories,
+        InsuranceCycles, InsuranceRequests, InsuranceFinance
+    ];
 
-        items[currentSlide].classList.remove('active');
+    const breadthImages = [
+        Breadth1, Breadth2, Breadth3,
+        Breadth4, Breadth5, Breadth6
+    ]
 
-        currentSlide = (currentSlide + direction + totalItems) % totalItems;
-
-        items[currentSlide].classList.add('active');
-
-        document.querySelector('.carousel-inner').style.transform = `translateX(-${currentSlide * 100}%)`;
-    }
+    const alabrarImage = [
+        AlAbrar1, AlAbrar2, AlAbrar3, AlAbrar4, AlAbrar5,
+        AlAbrar6, AlAbrar7, AlAbrar8, AlAbrar9, AlAbrar10
+    ]
 
     return (
         <>
@@ -47,42 +113,104 @@ export const Projects = () => {
                     <div className="projects_container" data-aos="fade-right">
                         <div className="project">
                             <div className="project_videocontainer">
-                                <div className="carousel">
-                                    <div className="carousel-inner">
-                                        <div className="carousel-item active">
-                                            <a href={InsuranceDashboard} target="_blank" rel="noopener noreferrer">
-                                                <img src={InsuranceDashboard} alt="Insurance Dashboard" />
-                                            </a>
-                                        </div>
-                                        <div className="carousel-item">
-                                            <a href={InsuranceProviders} target="_blank" rel="noopener noreferrer">
-                                                <img src={InsuranceProviders} alt="Insurance Providers" />
-                                            </a>
-                                        </div>
-                                        <div className="carousel-item">
-                                            <a href={InsuranceCategories} target="_blank" rel="noopener noreferrer">
-                                                <img src={InsuranceCategories} alt="Insurance Categories" />
-                                            </a>
-                                        </div>
-                                        <div className="carousel-item">
-                                            <a href={InsuranceCycles} target="_blank" rel="noopener noreferrer">
-                                                <img src={InsuranceCycles} alt="Insurance Cycles" />
-                                            </a>
-                                        </div>
-                                        <div className="carousel-item">
-                                            <a href={InsuranceRequests} target="_blank" rel="noopener noreferrer">
-                                                <img src={InsuranceRequests} alt="Insurance Requests" />
-                                            </a>
-                                        </div>
-                                        <div className="carousel-item">
-                                            <a href={InsuranceFinance} target="_blank" rel="noopener noreferrer">
-                                                <img src={InsuranceFinance} alt="Insurance Finance" />
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <a href={() => false} className="carousel-control prev" onClick={() => moveCarousel(-1)} >&#10094;</a>
-                                    <a href={() => false} className="carousel-control next" onClick={() => moveCarousel(1)}>&#10095;</a>
+                                <Carousel images={goldnLadiesImages} altPrefix="Goldn Ladies" />
+                            </div>
+                            <div className="project_information">
+                                <h2>GOLDN Socialista Application</h2>
+                                <p>
+                                    The GOLDN Socialista App is designed to connect, inspire, and empower women entrepreneurs. This comprehensive digital platform includes a mobile app for 
+                                    members and a centralized admin portal for the GOLDN team, bringing the entrepreneurial community
+                                    right to users’ fingertips. Through interactive events, dynamic group chats, curated content, and exclusive partner collaborations,
+                                    the app fosters meaningful connections, idea sharing, and professional growth. 
+                                    The admin portal enables the GOLDN team to efficiently manage members, events, and partnerships, ensuring a seamless experience across the platform.
+                                </p>
+                                <div>
+                                    <FaVuejs />
+                                    <SiNodedotjs />
+                                    <SiExpress />
+                                    <SiMongodb />
+                                    <SiVuetify />
+                                    <SiRedis />
                                 </div>
+                                <div>
+                                    <a href="https://goldnsocialista.com" target="_blank" rel="noreferrer">
+                                        <span type="button" className="btns onbt onbt">See this Live</span>
+                                    </a>
+                                    {/* <a href="https://github.com/fahad065/Netflix-Clone-Using-React-JS" target="_blank" rel="noreferrer">
+                                        <span type="button" className="btns onbt">View Code</span>
+                                    </a> */}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="projects_container" data-aos="fade-right">
+                        <div className="project">
+                            <div className="project_videocontainer">
+                                <Carousel images={alabrarImage} altPrefix="Goldn Ladies" />
+                            </div>
+                            <div className="project_information">
+                                <h2>Al Abrar Application</h2>
+                                <p>
+                                    Developed a guided Islamic meditation platform that promotes spiritual well-being through structured exercises, 
+                                    personalized suggestions, and gamified rewards. Built a comprehensive system featuring user portals with 
+                                    unique content, a reward system for unlocking spiritual paths, daily Islamic quotes, AI-powered 
+                                    recommendations, and an integrated store with Stripe payments. Created a centralized admin portal for 
+                                    content management, making it a secure digital sanctuary for spiritual reflection and growth.
+                                </p>
+                                <div>
+                                    <FaVuejs />
+                                    <FaReact />
+                                    <SiNextdotjs />
+                                    <SiNodedotjs />
+                                    <SiExpress />
+                                    <SiMongodb />
+                                    <SiVuetify />
+                                    <SiRedis />
+                                </div>
+                                <div>
+                                    {/* <a href="https://breadth.ae/" target="_blank" rel="noreferrer">
+                                        <span type="button" className="btns onbt onbt">See this Live</span>
+                                    </a> */}
+                                    {/* <a href="https://github.com/fahad065/Netflix-Clone-Using-React-JS" target="_blank" rel="noreferrer">
+                                        <span type="button" className="btns onbt">View Code</span>
+                                    </a> */}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="projects_container" data-aos="fade-right">
+                        <div className="project">
+                            <div className="project_videocontainer">
+                                <Carousel images={breadthImages} altPrefix="Goldn Ladies" />
+                            </div>
+                            <div className="project_information">
+                                <h2>Breadth Inventory System & E-commerce Website</h2>
+                                <p>
+                                    Developed an integrated B2B platform combining a comprehensive inventory management system with an e-commerce portal. Built complete inventory workflows (products, suppliers, warehouses) and dual portals: a client-facing portal for browsing products and submitting RFQs, and an admin portal for managing inventory, orders, and analytics. Enabled seamless B2B communication with real-time stock updates and automated quotation generation.
+                                </p>
+                                <div>
+                                    <FaVuejs />
+                                    <SiNodedotjs />
+                                    <SiExpress />
+                                    <SiMongodb />
+                                    <SiVuetify />
+                                    <SiRedis />
+                                </div>
+                                <div>
+                                    <a href="https://breadth.ae/" target="_blank" rel="noreferrer">
+                                        <span type="button" className="btns onbt onbt">See this Live</span>
+                                    </a>
+                                    {/* <a href="https://github.com/fahad065/Netflix-Clone-Using-React-JS" target="_blank" rel="noreferrer">
+                                        <span type="button" className="btns onbt">View Code</span>
+                                    </a> */}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="projects_container" data-aos="fade-right">
+                        <div className="project">
+                            <div className="project_videocontainer">
+                                <Carousel images={insuranceImages} altPrefix="Insurance" />
                             </div>
                             <div className="project_information">
                                 <h2>Insurance Portal - MEVN Stack</h2>
@@ -161,7 +289,7 @@ export const Projects = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="projects_container" data-aos="fade-right">
+                    {/* <div className="projects_container" data-aos="fade-right">
                         <div className="project">
                             <div className="project_videocontainer">
                                 <div>
@@ -190,8 +318,8 @@ export const Projects = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="projects_container" data-aos="fade-right">
+                    </div> */}
+                    {/* <div className="projects_container" data-aos="fade-right">
                         <div className="project">
                             <div className="project_videocontainer">
                                 <div>
@@ -220,7 +348,7 @@ export const Projects = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>

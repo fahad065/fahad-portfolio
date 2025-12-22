@@ -7,7 +7,8 @@ import {
     SiExpress,
     SiRedis,
     SiVuetify,
-    SiNetlify
+    SiNetlify,
+    SiNestjs
   } from "react-icons/si";
 import { DiCss3, DiMongodb } from "react-icons/di";
 import { SiJavascript } from "react-icons/si";
@@ -47,6 +48,10 @@ export const Techstacks = () => {
                     <div>
                         <FaNodeJs />
                         <h5>Nodejs</h5>
+                    </div>
+                    <div>
+                        <SiNestjs />
+                        <h5>Nestjs</h5>
                     </div>
                     <div>
                         <DiMongodb />

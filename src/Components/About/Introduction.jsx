@@ -19,8 +19,8 @@ export const Introduction = () => {
                         <div className="introduction_datacontainer">
                             <h4>
                                 Hi Everyone, My name is{" "} <span className="different">Fahad Abdul Faheem </span> and I am based in {" "} <span className="different">{" "} Dubai, United Arab Emirates.</span>
-                                . I have more than {" "}<span className="different"> 3.5 years </span> years of Experience as a Full Stack Developer
-                                . I am proficient in a variety of technologies including populer front-end frameworks like {" "} <span className="different">Vue.Js, Angular.Js and React.Js</span>, and along side with {" "} <span className="different">Node.Js</span> for server-side development and {" "} <span className="different">MongoDb</span> for database management
+                                . I have more than {" "}<span className="different"> 5 years </span> years of Experience as a Full Stack Developer
+                                . I am proficient in a variety of technologies including populer front-end frameworks like {" "} <span className="different">Vue.Js, Angular.Js and React.Js</span>, and along side with {" "} <span className="different">NodeJs, NestJs</span> for server-side development and {" "} <span className="different">MongoDb</span> for database management
                                 . My Experience extends beyond care development to {" "} <span className="different">GIT- Version Control, TCP protocols and front-end optimization techniques</span>
                                 . I am also proficient in essential web development languages like {" "} <span className="different">HTML5, CSS3, JavaScript</span> and modern tools like {" "} <span className="different">ES65 and Webpack</span>.
                             </h4>

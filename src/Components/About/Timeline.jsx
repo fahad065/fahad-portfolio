@@ -26,7 +26,18 @@ export const Timeline = () => {
             <div className="section mainsection">
                 <h2 className="section__title" data-aos="fade-right">My <span className="different">Timeline 💫</span></h2>
                 <VerticalTimeline lineColor={linecolor}>
-                    <VerticalTimelineElement date={"2022 - Present"} contentStyle={{ boxShadow: `var(--shadow)`, border: "3px solid var(--clr-primary)", backgroundColor: `var(--clr-bg)`, textAlign: "center", color: `var(--clr-fg-alt)` }} contentArrowStyle={{ borderRight: "16px solid  var(--clr-primary)" }} iconStyle={{ border: ` 3px solid var(--clr-primary)`, backgroundColor: `var(--clr-bg)`, color: `var(--clr-primary)` }} icon={<WorkIcon />} >
+                    <VerticalTimelineElement date={"2025 - Present"} contentStyle={{ boxShadow: `var(--shadow)`, border: "3px solid var(--clr-primary)", backgroundColor: `var(--clr-bg)`, textAlign: "center", color: `var(--clr-fg-alt)` }} contentArrowStyle={{ borderRight: "16px solid  var(--clr-primary)" }} iconStyle={{ border: ` 3px solid var(--clr-primary)`, backgroundColor: `var(--clr-bg)`, color: `var(--clr-primary)` }} icon={<WorkIcon />} >
+                        <h3 className="vertical-timeline-element-title" data-aos="fade-right">
+                            Elite Click Corporate Service Leaders
+                        </h3>
+                        <h4 className="vertical-timeline-element-subtitle" data-aos="fade-right">
+                            Full Stack Developer
+                        </h4>
+                        <p data-aos="fade-right">
+                            Designed and developed scalable web platforms across B2B inventory, social networking, wellness, and project management domains. Built secure backend architectures, real-time systems, and high-performance user interfaces using modern JavaScript frameworks. Integrated payment gateways, caching strategies, and automation workflows to enhance system reliability, performance, and user experience while maintaining clean, reusable code.
+                        </p>
+                    </VerticalTimelineElement>
+                    <VerticalTimelineElement date={"2022 - 2025"} contentStyle={{ boxShadow: `var(--shadow)`, border: "3px solid var(--clr-primary)", backgroundColor: `var(--clr-bg)`, textAlign: "center", color: `var(--clr-fg-alt)` }} contentArrowStyle={{ borderRight: "16px solid  var(--clr-primary)" }} iconStyle={{ border: ` 3px solid var(--clr-primary)`, backgroundColor: `var(--clr-bg)`, color: `var(--clr-primary)` }} icon={<WorkIcon />} >
                         <h3 className="vertical-timeline-element-title" data-aos="fade-right">
                             Nathan Digital
                         </h3>
@@ -45,7 +56,7 @@ export const Timeline = () => {
                             Instacks Pvt. Ltd.
                         </h3>
                         <h4 className="vertical-timeline-element-subtitle" data-aos="fade-right">
-                            Frontend Developer
+                            Full Stack Developer
                         </h4>
                         <p data-aos="fade-right">
                             Created different types of modules for a PaaS and E-learning platform.
